@@ -1,0 +1,212 @@
+{
+    "version": "1.0",
+    "about": {
+      "version": "",
+      "description": "export of environment 'functest'"
+    },
+    "services": {},
+    "scoped_variables": [],
+    "containers": {
+      "node-1": {
+        "name": "node-1",
+        "image": {
+          "name": "redis:latest",
+          "origin": {
+            "type": "docker-hub",
+            "details": {
+              "existing": null,
+              "target": "redis:latest"
+            }
+          }
+        },
+        "stateful": true,
+        "config": {
+          "network": {
+            "public": "disable",
+            "hostname": "node-1"
+          },
+          "deploy": {
+            "instances": 1,
+            "strategy": "manual",
+            "constraints": {
+              "node": {
+                "tags": {}
+              }
+            }
+          },
+          "runtime": {
+            "command": {
+              "path": "redis-server",
+              "args": "--cluster-enabled yes --port 6379 --cluster-config-file nodes.conf --cluster-node-timeout 5000 --appendonly yes"
+            },
+            "environment_vars": {
+              "GOSU_VERSION": "1.17",
+              "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+              "REDIS_DOWNLOAD_SHA": "bc34b878eb89421bbfca6fa78752343bf37af312a09eb0fae47c9575977dfaa2",
+              "REDIS_DOWNLOAD_URL": "http://download.redis.io/releases/redis-7.4.1.tar.gz",
+              "REDIS_VERSION": "7.4.1"
+            },
+            "seccomp": {
+              "disable": false,
+              "rules": null
+            },
+            "host": {
+              "expose_proc": null
+            },
+            "rootfs": {
+              "readonly": false
+            }
+          },
+          "integrations": {
+            "lets_encrypt": {
+              "enable": false
+            }
+          }
+        },
+        "volumes": [
+          {
+            "local": {
+              "max_size": "5G"
+            },
+            "destination": "/data",
+            "read_only": false
+          }
+        ]
+      },
+      "node-2": {
+        "name": "node-2",
+        "image": {
+          "name": "redis:latest",
+          "origin": {
+            "type": "docker-hub",
+            "details": {
+              "existing": null,
+              "target": "redis:latest"
+            }
+          }
+        },
+        "stateful": true,
+        "config": {
+          "network": {
+            "public": "disable",
+            "hostname": "node-2"
+          },
+          "deploy": {
+            "instances": 1,
+            "strategy": "manual",
+            "constraints": {
+              "node": {
+                "tags": {}
+              }
+            }
+          },
+          "runtime": {
+            "command": {
+              "path": "redis-server",
+              "args": "--cluster-enabled yes --port 6379 --cluster-config-file nodes.conf --cluster-node-timeout 5000 --appendonly yes"
+            },
+            "environment_vars": {
+              "GOSU_VERSION": "1.17",
+              "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+              "REDIS_DOWNLOAD_SHA": "bc34b878eb89421bbfca6fa78752343bf37af312a09eb0fae47c9575977dfaa2",
+              "REDIS_DOWNLOAD_URL": "http://download.redis.io/releases/redis-7.4.1.tar.gz",
+              "REDIS_VERSION": "7.4.1"
+            },
+            "seccomp": {
+              "disable": false,
+              "rules": null
+            },
+            "host": {
+              "expose_proc": null
+            },
+            "rootfs": {
+              "readonly": false
+            }
+          },
+          "integrations": {
+            "lets_encrypt": {
+              "enable": false
+            }
+          }
+        },
+        "volumes": [
+          {
+            "local": {
+              "max_size": "5G"
+            },
+            "destination": "/data",
+            "read_only": false
+          }
+        ]
+      },
+      "node-3": {
+        "name": "node-3",
+        "image": {
+          "name": "redis:latest",
+          "origin": {
+            "type": "docker-hub",
+            "details": {
+              "existing": null,
+              "target": "redis:latest"
+            }
+          }
+        },
+        "stateful": true,
+        "config": {
+          "network": {
+            "public": "disable",
+            "hostname": "node-3"
+          },
+          "deploy": {
+            "instances": 1,
+            "strategy": "manual",
+            "constraints": {
+              "node": {
+                "tags": {}
+              }
+            }
+          },
+          "runtime": {
+            "command": {
+              "path": "redis-server",
+              "args": "--cluster-enabled yes --port 6379 --cluster-config-file nodes.conf --cluster-node-timeout 5000 --appendonly yes"
+            },
+            "environment_vars": {
+              "GOSU_VERSION": "1.17",
+              "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+              "REDIS_DOWNLOAD_SHA": "bc34b878eb89421bbfca6fa78752343bf37af312a09eb0fae47c9575977dfaa2",
+              "REDIS_DOWNLOAD_URL": "http://download.redis.io/releases/redis-7.4.1.tar.gz",
+              "REDIS_VERSION": "7.4.1"
+            },
+            "seccomp": {
+              "disable": false,
+              "rules": null
+            },
+            "host": {
+              "expose_proc": null
+            },
+            "rootfs": {
+              "readonly": false
+            }
+          },
+          "integrations": {
+            "lets_encrypt": {
+              "enable": false
+            }
+          }
+        },
+        "volumes": [
+          {
+            "local": {
+              "max_size": "5G"
+            },
+            "destination": "/data",
+            "read_only": false
+          }
+        ]
+      }
+    },
+    "annotations": {
+      "description": ""
+    }
+  }
