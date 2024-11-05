@@ -11,6 +11,7 @@
 
 
 ## Adding Replicas
+The above creates a 3 node cluster without replicas.  Read reps can be added, per docs it is:
 
 redis-cli --cluster add-node <new-node-ip>:<new-node-port> <existing-master-node-ip>:<existing-master-node-port> --cluster-slave
 
