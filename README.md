@@ -15,3 +15,11 @@ The above creates a 3 node cluster without replicas.  Read reps can be added, pe
 
 redis-cli --cluster add-node <new-node-ip>:<new-node-port> <existing-master-node-ip>:<existing-master-node-port> --cluster-slave
 
+## Testing the clustering 
+
+Log in with two-way console and `for i in {1..100}; do redis-cli -c SET key$i "value$i"; done`
+
+Then from any instance run `cluster keyslot 50` or any number between 1-100. 
+
+To see which shard has that keyslot run `cluster nodes`.
+
